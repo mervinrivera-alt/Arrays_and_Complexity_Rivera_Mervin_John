@@ -156,7 +156,7 @@ The following test cases cover the required operations and conditions specified 
 | AI tool | OpenCode |
 | Model recorded in Agent.log | Nemotron 3.5 Lightning Free |
 | Purpose | Algorithm design, Java implementation assistance, debugging, and input validation |
-| Instructor approval | To be confirmed with the instructor |
+
 
 ### Prompts Used
 
