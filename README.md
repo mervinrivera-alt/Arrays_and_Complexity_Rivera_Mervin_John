@@ -134,19 +134,23 @@ This demonstrates that the last valid index changes whenever the number of activ
 
 ## 4. Test Evidence
 
-The following test cases cover the required operations and conditions specified in the lab instructions.
+The following test cases were performed to verify the required array operations and boundary conditions.
 
 | Test case | Input / action | Expected | Actual result |
 |---|---|---|---|
-| Access first and last valid indexes | Access index `0` and index `size - 1` | Returns `72` and `84`, respectively, from the initial array | Pending actual test |
-| Insert at index 0 | Insert `10` at index `0` | `[10, 72, 90, 84]`, size = 4 | Pending actual test |
-| Insert in the middle | Insert `88` at index `1` | `[72, 88, 90, 84]`, size = 4 | Pending actual test |
-| Delete the final active element | Delete index `2` from the initial array | `[72, 90]`, size = 2 | Pending actual test |
-| Reject an invalid index | Attempt an operation using an invalid index | Reject the operation and display an error message | Pending actual test |
-| Reject insertion when full | Fill all five slots and attempt another insertion | Reject insertion and display an array-full message | Pending actual test |
+| Access first and last valid indexes | Access index `0` and index `size - 1` | Returns `72` and `84`, respectively, from the initial array | **Passed:** First valid index (0) returned `72`; last valid index (2) returned `84`. |
+| Insert at index 0 | Insert `10` at index `0` | `[10, 72, 90, 84]`, size = 4 | **Passed:** Displayed `[10, 72, 90, 84]`, size = 4, capacity = 5. |
+| Insert in the middle | Insert `88` at index `1` | `[72, 88, 90, 84]`, size = 4 | **Passed:** Displayed `[72, 88, 90, 84]`, size = 4, capacity = 5. |
+| Delete the final active element | Delete index `2` from the initial array | `[72, 90]`, size = 2 | **Passed:** Displayed `[72, 90]`, size = 2, capacity = 5. No shifting was needed. |
+| Reject an invalid index | Attempt to delete index `3` when size = 3 | Reject the operation and display an error message | **Passed:** Displayed `Index must be between 0 and 2.` and requested another index. The invalid input did not modify the array. |
+| Reject insertion when full | Fill all five slots and attempt another insertion | Reject insertion and display an array-full message | **Passed:** After reaching `[72, 90, 84, 31, 42]`, size = 5, another insertion was rejected with `Array is full – cannot insert.` |
 
-**Testing note:** Each pending actual result should be replaced with the result observed when running the program. For the full-array test, two additional values must first be inserted into the initial three-element array before another insertion is attempted.
+### Testing Notes
 
+- The first and last valid indexes were verified using the existing `getScores()` and `getSize()` methods.
+- Each insertion and deletion test started with the initial array `[72, 90, 84]`.
+- The full-array test used two successful insertions before attempting another insertion.
+- The invalid-index test confirmed that an out-of-range index is rejected without modifying the array.
 ## 5. AI-Use Declaration
 
 ### AI Tool and Model
